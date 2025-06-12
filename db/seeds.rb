@@ -10,7 +10,7 @@
 require "open-uri"
 require "json"
 
-url = "https://tmdb.lewagon.com/movie/popular"
+url = "https://tmdb.lewagon.com/movie/top_rated"
 
 movies_serialized = URI.parse(url).read
 movies_json = JSON.parse(movies_serialized)
@@ -23,12 +23,12 @@ puts "Movies left in database: #{Movie.count}"
 puts "Creating movies..."
 movies.each do |movie|
   Movie.create!(
-    title: movie["original_title"],
+    title: movie["title"],
     overview: movie["overview"],
     poster_url: "https://image.tmdb.org/t/p/w500#{movie['poster_path']}",
     rating: movie["vote_average"].round(1)
   )
-  puts "Created movie: #{movie['original_title']}" if Movie.last.title == movie["original_title"]
+  puts "Created movie: #{movie['title']}" if Movie.last.title == movie["title"]
 end
 
 
