@@ -1,11 +1,12 @@
-<div class="container">
-  <h1><%= @list.name %></h1>
-  <ul>
-    <% @list.bookmarks.each do |bookmark| %>
-      <li><%= bookmark.movie.title %> | "<%= bookmark.comment %>" | <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
-    <% end %>
-  </ul>
+<div class="show-list" style="background-image: url('<%= @list.image_url %>');">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+    <ul>
+      <% @list.bookmarks.each do |bookmark| %>
+        <li><%= bookmark.movie.title %> | "<%= bookmark.comment %>" | <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
+      <% end %>
+    </ul>
 
-  <%= link_to "Add Movie", new_list_bookmark_path(@list) %>
-  <%= link_to "Home", root_path %>
+    <%= link_to "Add Movie", new_list_bookmark_path(@list) %>
+  </div>
 </div>
