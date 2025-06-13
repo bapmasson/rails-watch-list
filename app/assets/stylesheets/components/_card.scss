@@ -1,0 +1,30 @@
+.card-list {
+  background: #222;
+  border-radius: 8px;
+  padding: 16px 0;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(244, 243, 243, 0.385);
+  aspect-ratio: 2 / 3;
+  min-height: 150px;
+  max-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+    a {
+      font-weight: 500;
+      font-size: 1.8rem;
+      text-decoration: none;
+      color: $white;
+      transition: 0.3s ease;
+      &:hover {
+        color: $red;
+      }
+    }
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 16px rgba(244, 243, 243, 0.63);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  }

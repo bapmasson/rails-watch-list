@@ -1,11 +1,18 @@
-<div class="container">
-  <h1>Lists</h1>
-
-  <ul>
-    <% @lists.each do |list| %>
-      <li><%= link_to list.name,  list_path(list) %></li>
-    <% end %>
-  </ul>
-
-  <%= link_to "New List", new_list_path %>
+<div class="home">
+  <div class="container">
+    <div class="row justify-content-around">
+      <% @lists.each do |list| %>
+        <div class="col-6 col-md-4 col-lg-3 mt-3">
+          <div class="card-list">
+            <%= link_to list.name,  list_path(list) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+      <div class="col-12 text-center mt-5">
+        <h1>Save any kind of movies</h1>
+        <p>Manage your movie lists with ease!</p>
+      </div>
+    </div>
+  </div>
 </div>

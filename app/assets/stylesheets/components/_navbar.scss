@@ -1,10 +1,19 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: black;
+  color: white;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    &:hover {
+      color: $red ; // Use the yellow color from your config
+    }
+  }
 }
 
 .navbar-lewagon .navbar-brand img {
