@@ -3,4 +3,8 @@
   background-position: top;
   height: 100vh;
   color: $white;
+  h1 {
+    position: sticky;
+    top: 4px;
+  }
 }

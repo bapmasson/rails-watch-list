@@ -1,11 +1,27 @@
 <div class="show-list" style="background-image: url('<%= @list.image_url %>');">
   <div class="container">
     <h1><%= @list.name %></h1>
-    <ul>
-      <% @list.bookmarks.each do |bookmark| %>
-        <li><%= bookmark.movie.title %> | "<%= bookmark.comment %>" | <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
-      <% end %>
-    </ul>
+          <div class="row justify-content-between">
+            <% @list.bookmarks.each do |bookmark| %>
+              <div class="col-12 col-lg-6 my-3">
+                <div class="card-main card-movie" style="background-image: url('<%= bookmark.movie.poster_url %>');">
+                  <div class="d-flex justify-content-between">
+                    <h2><%= bookmark.movie.title %></h2>
+                    <p class="align-self-center"><%= bookmark.movie.rating %> ⭐</p>
+                  </div>
+                  <h3><%= bookmark.movie.overview %></h3>
+                  <div class="d-flex justify-content-between">
+                    <p class="p-quote"><i class="fa-solid fa-quote-left"></i> <%= bookmark.comment %> <i class="fa-solid fa-quote-right"></i></p>
+                    <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Delete #{bookmark.movie.title} from the #{@list.name} list ?"} do %>
+                      <i class="fa-solid fa-trash-can"></i>
+                    <% end %>
+
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
 
     <%= link_to "Add Movie", new_list_bookmark_path(@list) %>
   </div>
