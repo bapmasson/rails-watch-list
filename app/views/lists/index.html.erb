@@ -1,9 +1,14 @@
 <div class="home" style="background-image: url('https://res.cloudinary.com/daytskqjn/image/upload/v1750261130/kxeco0fjbays5xtubhm2.jpg');">
   <div class="container">
-    <div class="row justify-content-around">
+    <div class="row justify-content-center">
       <% @lists.each do |list| %>
         <div class="col-6 col-md-4 col-lg-3 mt-3">
-          <div class="card-main card-list" style="background-image: url('<%= cl_image_path list.photo.key %>');">
+          <div class="card-main card-list"
+
+          <% if list.photo.attached? %>
+          style="background-image: url('<%= cl_image_path list.photo.key %>');"
+          <% end %>>
+
             <%= link_to list.name,  list_path(list) %>
           </div>
         </div>

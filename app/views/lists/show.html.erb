@@ -1,4 +1,7 @@
-<div class="show-list" style="background-image: url('<%= cl_image_path @list.photo.key %>');">
+<div class="show-list"
+<% if  @list.photo.attached? %>
+  style="background-image: url('<%= cl_image_path @list.photo.key %>');"
+<% end %>>
 
   <div class="container">
 
