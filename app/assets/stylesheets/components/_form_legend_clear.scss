@@ -8,3 +8,14 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.form-control {
+  background-color: $gray;
+  border-color: $red;
+}
+
+.form-select {
+  background-color: $gray;
+  border-color: $red;
+  color: $white;
+}
