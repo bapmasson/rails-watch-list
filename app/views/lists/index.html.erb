@@ -3,7 +3,7 @@
     <div class="row justify-content-around">
       <% @lists.each do |list| %>
         <div class="col-6 col-md-4 col-lg-3 mt-3">
-          <div class="card-main card-list" style="background-image: url('<%= list.image_url %>');">
+          <div class="card-main card-list" style="background-image: url('<%= cl_image_path list.photo.key %>');">
             <%= link_to list.name,  list_path(list) %>
           </div>
         </div>
